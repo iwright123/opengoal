@@ -1,0 +1,74 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg, #ffffff);
+    border: 1px solid var(--border, #e5e5e5);
+    border-radius: 8px;
+    padding: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-color: var(--primary, #00b140);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.liveStatus {
+    color: #e11d48;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+.teams {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 8px;
+}
+
+.teamName {
+    flex: 1;
+    font-weight: 500;
+}
+
+.score {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
