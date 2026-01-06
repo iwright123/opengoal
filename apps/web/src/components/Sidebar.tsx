@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Search from './Search';
 import styles from './Sidebar.module.css';
 
 // Using media.api-sports.io generic CDN for logos (Standard IDs)
@@ -27,9 +28,7 @@ export default function Sidebar() {
             </Link>
 
             <div className={styles.group}>
-                <div className={styles.search}>
-                    <input type="text" placeholder="Search" className={styles.searchInput} />
-                </div>
+                <Search />
             </div>
 
             <div className={styles.group}>

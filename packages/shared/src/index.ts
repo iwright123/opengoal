@@ -19,6 +19,14 @@ export interface Player {
     teamId: string;
     position: 'GK' | 'DF' | 'MF' | 'FW';
     number: number;
+    // Optional stats
+    age?: number;
+    nationality?: string;
+    height?: string;
+    goals?: number;
+    assists?: number;
+    appearances?: number;
+    rating?: number;
 }
 
 export interface MatchEvent {

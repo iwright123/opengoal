@@ -1,0 +1,157 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+}
+
+.avatarContainer {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--sidebar-border);
+    border: 4px solid var(--border);
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info {
+    flex: 1;
+}
+
+.name {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 12px 0;
+    color: var(--foreground);
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.number {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.position {
+    padding: 4px 12px;
+    background: var(--sidebar-border);
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.teamLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--foreground);
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.teamLink:hover {
+    background: var(--sidebar-border);
+}
+
+.teamLogo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.statsSection {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.sectionTitle {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: var(--foreground);
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+}
+
+.value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+}
+
+.statCard {
+    background: var(--sidebar-border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.statValue {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.statLabel {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+}

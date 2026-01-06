@@ -69,23 +69,23 @@ export const TEAMS: Team[] = [
 ];
 
 export const PLAYERS: Player[] = [
-    { id: 'p1', name: 'Erling Haaland', teamId: 'mcity', position: 'FW', number: 9 },
-    { id: 'p2', name: 'Kevin De Bruyne', teamId: 'mcity', position: 'MF', number: 17 },
-    { id: 'p3', name: 'Bukayo Saka', teamId: 'ars', position: 'FW', number: 7 },
-    { id: 'p4', name: 'Mohamed Salah', teamId: 'liv', position: 'FW', number: 11 },
-    { id: 'p5', name: 'Vinicius Jr', teamId: 'rm', position: 'FW', number: 7 },
+    { id: 'p1', name: 'Erling Haaland', teamId: 'mcity', position: 'FW', number: 9, age: 23, nationality: 'Norway', height: '1.95m', goals: 14, assists: 3, appearances: 10, rating: 8.5 },
+    { id: 'p2', name: 'Kevin De Bruyne', teamId: 'mcity', position: 'MF', number: 17, age: 32, nationality: 'Belgium', height: '1.81m', goals: 2, assists: 8, appearances: 10, rating: 8.2 },
+    { id: 'p3', name: 'Bukayo Saka', teamId: 'ars', position: 'FW', number: 7, age: 22, nationality: 'England', height: '1.78m', goals: 6, assists: 5, appearances: 10, rating: 7.8 },
+    { id: 'p4', name: 'Mohamed Salah', teamId: 'liv', position: 'FW', number: 11, age: 31, nationality: 'Egypt', height: '1.75m', goals: 9, assists: 6, appearances: 10, rating: 8.1 },
+    { id: 'p5', name: 'Vinicius Jr', teamId: 'rm', position: 'FW', number: 7, age: 23, nationality: 'Brazil', height: '1.76m', goals: 8, assists: 4, appearances: 9, rating: 7.9 },
     // Man City Full Squad Mock
-    { id: 'gk1', name: 'Ederson', teamId: 'mcity', position: 'GK', number: 31 },
-    { id: 'df1', name: 'Kyle Walker', teamId: 'mcity', position: 'DF', number: 2 },
-    { id: 'df2', name: 'Ruben Dias', teamId: 'mcity', position: 'DF', number: 3 },
-    { id: 'df3', name: 'Manuel Akanji', teamId: 'mcity', position: 'DF', number: 25 },
-    { id: 'df4', name: 'Josko Gvardiol', teamId: 'mcity', position: 'DF', number: 24 },
-    { id: 'mf1', name: 'Rodri', teamId: 'mcity', position: 'MF', number: 16 },
-    { id: 'mf2', name: 'Bernardo Silva', teamId: 'mcity', position: 'MF', number: 20 },
-    { id: 'mf3', name: 'Phil Foden', teamId: 'mcity', position: 'MF', number: 47 },
-    { id: 'mf4', name: 'Mateo Kovacic', teamId: 'mcity', position: 'MF', number: 8 },
-    { id: 'fw1', name: 'Jack Grealish', teamId: 'mcity', position: 'FW', number: 10 },
-    { id: 'fw2', name: 'Jeremy Doku', teamId: 'mcity', position: 'FW', number: 11 }
+    { id: 'gk1', name: 'Ederson', teamId: 'mcity', position: 'GK', number: 31, age: 30, nationality: 'Brazil', height: '1.88m', goals: 0, assists: 0, appearances: 10, rating: 7.5 },
+    { id: 'df1', name: 'Kyle Walker', teamId: 'mcity', position: 'DF', number: 2, age: 33, nationality: 'England', height: '1.78m', goals: 0, assists: 2, appearances: 9, rating: 7.3 },
+    { id: 'df2', name: 'Ruben Dias', teamId: 'mcity', position: 'DF', number: 3, age: 26, nationality: 'Portugal', height: '1.87m', goals: 1, assists: 0, appearances: 10, rating: 7.6 },
+    { id: 'df3', name: 'Manuel Akanji', teamId: 'mcity', position: 'DF', number: 25, age: 28, nationality: 'Switzerland', height: '1.88m', goals: 0, assists: 1, appearances: 8, rating: 7.2 },
+    { id: 'df4', name: 'Josko Gvardiol', teamId: 'mcity', position: 'DF', number: 24, age: 21, nationality: 'Croatia', height: '1.85m', goals: 1, assists: 1, appearances: 10, rating: 7.4 },
+    { id: 'mf1', name: 'Rodri', teamId: 'mcity', position: 'MF', number: 16, age: 27, nationality: 'Spain', height: '1.91m', goals: 3, assists: 2, appearances: 10, rating: 8.0 },
+    { id: 'mf2', name: 'Bernardo Silva', teamId: 'mcity', position: 'MF', number: 20, age: 29, nationality: 'Portugal', height: '1.73m', goals: 2, assists: 4, appearances: 10, rating: 7.7 },
+    { id: 'mf3', name: 'Phil Foden', teamId: 'mcity', position: 'MF', number: 47, age: 23, nationality: 'England', height: '1.71m', goals: 5, assists: 3, appearances: 9, rating: 7.9 },
+    { id: 'mf4', name: 'Mateo Kovacic', teamId: 'mcity', position: 'MF', number: 8, age: 29, nationality: 'Croatia', height: '1.78m', goals: 1, assists: 2, appearances: 8, rating: 7.1 },
+    { id: 'fw1', name: 'Jack Grealish', teamId: 'mcity', position: 'FW', number: 10, age: 28, nationality: 'England', height: '1.75m', goals: 2, assists: 5, appearances: 9, rating: 7.4 },
+    { id: 'fw2', name: 'Jeremy Doku', teamId: 'mcity', position: 'FW', number: 11, age: 21, nationality: 'Belgium', height: '1.73m', goals: 1, assists: 3, appearances: 7, rating: 7.0 }
 ];
 
 const TODAY = new Date().toISOString().split('T')[0];

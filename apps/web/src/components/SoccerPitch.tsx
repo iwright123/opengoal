@@ -1,4 +1,5 @@
 import { Player } from '@opengoal/shared';
+import Link from 'next/link';
 import styles from './SoccerPitch.module.css';
 
 interface Props {
@@ -7,15 +8,12 @@ interface Props {
 
 export default function SoccerPitch({ players }: Props) {
     // Simple 4-3-3 visual distribution
-    // We just take first 11 players for now
     const startingXI = players.slice(0, 11);
 
     const gk = startingXI.filter(p => p.position === 'GK');
     const df = startingXI.filter(p => p.position === 'DF');
     const mf = startingXI.filter(p => p.position === 'MF');
     const fw = startingXI.filter(p => p.position === 'FW');
-
-    // Fallback if numbers don't match exactly 4-3-3, just dump them in lines
 
     return (
         <div className={styles.container}>
@@ -51,16 +49,15 @@ export default function SoccerPitch({ players }: Props) {
 
 function PlayerNode({ player }: { player: Player }) {
     return (
-        <div className={styles.playerNode}>
+        <Link href={`/player/${player.id}`} className={styles.playerNode}>
             <div className={styles.avatar}>
-                {/* Headshot placeholder */}
                 <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${player.name}`} alt="" className={styles.face} />
-                <div className={styles.rating}>7.0</div>
+                <div className={styles.rating}>{player.rating?.toFixed(1) || '7.0'}</div>
             </div>
             <div className={styles.playerInfo}>
                 <span className={styles.number}>{player.number}</span>
                 <span className={styles.name}>{player.name.split(' ').pop()}</span>
             </div>
-        </div>
+        </Link>
     );
 }
