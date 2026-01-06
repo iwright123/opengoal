@@ -10,13 +10,13 @@
     width: 100%;
     border-collapse: collapse;
     font-size: 0.9em;
-    min-width: 500px;
+    min-width: 700px;
     color: var(--foreground);
 }
 
 .table th,
 .table td {
-    padding: 12px 16px;
+    padding: 12px 8px;
     text-align: center;
 }
 
@@ -24,6 +24,8 @@
     background: var(--sidebar-border);
     font-weight: 600;
     color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
     border-bottom: 2px solid var(--border);
 }
 
@@ -40,9 +42,28 @@
 }
 
 .pos {
-    color: var(--muted);
+    color: var(--foreground);
     font-weight: 500;
     width: 40px;
+    padding: 0 !important;
+}
+
+.rankContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    width: 40px;
+}
+
+.qualBar {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 3px;
+    border-radius: 2px;
 }
 
 .teamCell {
@@ -50,6 +71,7 @@
     align-items: center;
     gap: 12px;
     text-align: left !important;
+    min-width: 180px;
 }
 
 .logo {
@@ -64,8 +86,55 @@
 
 .points {
     font-weight: bold;
-    color: var(--accent);
-    background: rgba(15, 138, 68, 0.1);
+    font-size: 1.1em;
+}
+
+.teamLink {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.teamLink:hover .teamName {
+    text-decoration: underline;
+}
+
+/* Form Badges */
+.formCell {
+    min-width: 120px;
+}
+
+.formFlex {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+}
+
+.formBadge {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.formWin {
+    background-color: #00b140;
+}
+
+.formDraw {
+    background-color: #999;
+}
+
+.formLoss {
+    background-color: #d32f2f;
 }
 
 .narrow {
@@ -73,7 +142,7 @@
     display: none;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
     .narrow {
         display: table-cell;
     }

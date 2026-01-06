@@ -1,0 +1,72 @@
+.container {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+}
+
+.badges {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.win {
+    background-color: #ea4335;
+}
+
+/* Matching user screenshot red? Wait screenshot shows 2-3 in Red. Red usually loss. Green win. Screenshot shows colors. Let's stick to standard or match screenshot strictly? Screenshot shows Red 2-3 (Loss), Red 3-0 (Win? No, usually 3-0 is win). Wait.
+FotMob logic: 
+If team lost 2-3, badge is Red, text is score.
+If team won 3-0, badge is Red? No.
+Let's look close at screenshot.
+2-3 (Red background) -> Loss
+3-0 (Red background) -> Loss? Or is it form OF OPPONENT?
+"Team form"
+Left badge "2-3" Red. Beneath is Aston Villa logo. Match was vs Aston Villa.
+If West Ham (page team) Lost, it's Red.
+The screenshot shows "3-0" Red. Wait. West Ham Lost 3-0 to Man City.
+"0-1" Red. Lost to Fulham.
+"2-2" Gray. Draw.
+"3-0" Red. Lost.
+So Red = Loss. Green = Win. Gray = Draw.
+The screenshot seemingly shows a terrible run of form (all red/gray).
+*/
+.win {
+    background-color: #00b140;
+}
+
+.draw {
+    background-color: #888;
+}
+
+.loss {
+    background-color: #d32f2f;
+}
+
+.opponentMock {
+    width: 24px;
+    height: 24px;
+    background: #ccc;
+    border-radius: 50%;
+}

@@ -1,36 +1,255 @@
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 24px;
 }
 
 .header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
     gap: 24px;
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid #eee;
+}
+
+.logoContainer {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .logo {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
 }
 
-.header h1 {
-    margin: 0 0 8px 0;
-    font-size: 2.5em;
+.info {
+    display: flex;
+    flex-direction: column;
 }
 
-.meta {
-    color: #666;
+.name {
+    font-size: 28px;
+    font-weight: 800;
     margin: 0;
-    font-size: 1.1em;
+    color: var(--foreground);
 }
 
-.placeholder {
-    color: #999;
+.country {
+    color: var(--muted);
+    margin: 4px 0 0 0;
+    font-size: 14px;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btnSecondary,
+.btnPrimary {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.btnSecondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--foreground);
+}
+
+.btnPrimary {
+    background: var(--foreground);
+    color: var(--background);
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+    overflow-x: auto;
+}
+
+.tab {
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+}
+
+.activeTab {
+    color: var(--foreground);
+    border-bottom-color: var(--accent);
+}
+
+/* Dashboard Grid */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 1024px) {
+    .dashboard {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto auto;
+    }
+}
+
+/* Widgets */
+.widgetForm {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.widgetNextMatch {
+    grid-column: 2;
+    grid-row: 1;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.widgetPitch {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    /* Spans two rows on right */
+    height: 100%;
+    min-height: 400px;
+}
+
+.widgetSummary {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    background: var(--background);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 24px;
+}
+
+.widgetTable {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+}
+
+.widgetFixtures {
+    grid-column: 3;
+    grid-row: 3;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+/* Section specific */
+.sectionTitle {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.summaryText {
+    color: var(--foreground);
+    line-height: 1.6;
+}
+
+/* Next Match Widget */
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.cardHeader h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.leagueName {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.nextMatchContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.nextMatchTeams {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nextLogo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.vsHealth {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.nextMatchNames {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 16px;
+}
+
+.fixturesHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.fixtureNav button {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.fixtureList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.empty {
+    color: var(--muted);
     font-style: italic;
+    text-align: center;
+    padding: 20px;
 }

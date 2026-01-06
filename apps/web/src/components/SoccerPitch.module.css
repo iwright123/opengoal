@@ -1,0 +1,102 @@
+.container {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.pitch {
+    background-color: #00b140;
+    border-radius: 8px;
+    flex: 1;
+    position: relative;
+    min-height: 400px;
+    overflow: hidden;
+    /* Pitch markings could be added with linear-gradients */
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+
+.playerNode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
+    width: 60px;
+}
+
+.avatar {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 4px;
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #eee;
+    border: 2px solid white;
+}
+
+.rating {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: #ff6d00;
+    color: white;
+    font-size: 10px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.playerInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.number {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+.name {
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}

@@ -39,4 +39,9 @@ router.get('/teams/:id', (req, res) => {
     res.json(team);
 });
 
+router.get('/players', (req, res) => {
+    const { PLAYERS } = require('./services/mockData');
+    res.json(PLAYERS);
+});
+
 export default router;

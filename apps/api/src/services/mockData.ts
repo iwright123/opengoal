@@ -73,7 +73,19 @@ export const PLAYERS: Player[] = [
     { id: 'p2', name: 'Kevin De Bruyne', teamId: 'mcity', position: 'MF', number: 17 },
     { id: 'p3', name: 'Bukayo Saka', teamId: 'ars', position: 'FW', number: 7 },
     { id: 'p4', name: 'Mohamed Salah', teamId: 'liv', position: 'FW', number: 11 },
-    { id: 'p5', name: 'Vinicius Jr', teamId: 'rm', position: 'FW', number: 7 }
+    { id: 'p5', name: 'Vinicius Jr', teamId: 'rm', position: 'FW', number: 7 },
+    // Man City Full Squad Mock
+    { id: 'gk1', name: 'Ederson', teamId: 'mcity', position: 'GK', number: 31 },
+    { id: 'df1', name: 'Kyle Walker', teamId: 'mcity', position: 'DF', number: 2 },
+    { id: 'df2', name: 'Ruben Dias', teamId: 'mcity', position: 'DF', number: 3 },
+    { id: 'df3', name: 'Manuel Akanji', teamId: 'mcity', position: 'DF', number: 25 },
+    { id: 'df4', name: 'Josko Gvardiol', teamId: 'mcity', position: 'DF', number: 24 },
+    { id: 'mf1', name: 'Rodri', teamId: 'mcity', position: 'MF', number: 16 },
+    { id: 'mf2', name: 'Bernardo Silva', teamId: 'mcity', position: 'MF', number: 20 },
+    { id: 'mf3', name: 'Phil Foden', teamId: 'mcity', position: 'MF', number: 47 },
+    { id: 'mf4', name: 'Mateo Kovacic', teamId: 'mcity', position: 'MF', number: 8 },
+    { id: 'fw1', name: 'Jack Grealish', teamId: 'mcity', position: 'FW', number: 10 },
+    { id: 'fw2', name: 'Jeremy Doku', teamId: 'mcity', position: 'FW', number: 11 }
 ];
 
 const TODAY = new Date().toISOString().split('T')[0];
@@ -122,18 +134,18 @@ export const MATCHES: Match[] = [
 
 export const STANDINGS: Record<string, Standing[]> = {
     'pl': [
-        { teamId: 'mcity', played: 10, won: 8, drawn: 1, lost: 1, goalsFor: 25, goalsAgainst: 8, points: 25 },
-        { teamId: 'ars', played: 10, won: 7, drawn: 3, lost: 0, goalsFor: 20, goalsAgainst: 10, points: 24 },
-        { teamId: 'liv', played: 10, won: 7, drawn: 2, lost: 1, goalsFor: 22, goalsAgainst: 11, points: 23 },
-        { teamId: 'tot', played: 10, won: 6, drawn: 2, lost: 2, goalsFor: 18, goalsAgainst: 12, points: 20 }
+        { teamId: 'mcity', played: 10, won: 8, drawn: 1, lost: 1, goalsFor: 25, goalsAgainst: 8, points: 25, form: 'WWWDW', description: 'Promotion - Champions League (Group Stage)' },
+        { teamId: 'ars', played: 10, won: 7, drawn: 3, lost: 0, goalsFor: 20, goalsAgainst: 10, points: 24, form: 'WWDDW', description: 'Promotion - Champions League (Group Stage)' },
+        { teamId: 'liv', played: 10, won: 7, drawn: 2, lost: 1, goalsFor: 22, goalsAgainst: 11, points: 23, form: 'WDWWL', description: 'Promotion - Champions League (Group Stage)' },
+        { teamId: 'tot', played: 10, won: 6, drawn: 2, lost: 2, goalsFor: 18, goalsAgainst: 12, points: 20, form: 'LLWWW', description: 'Promotion - Champions League (Group Stage)' }
     ],
     'laliga': [
-        { teamId: 'rm', played: 11, won: 9, drawn: 1, lost: 1, goalsFor: 28, goalsAgainst: 8, points: 28 },
-        { teamId: 'bar', played: 11, won: 7, drawn: 3, lost: 1, goalsFor: 22, goalsAgainst: 10, points: 24 }
+        { teamId: 'rm', played: 11, won: 9, drawn: 1, lost: 1, goalsFor: 28, goalsAgainst: 8, points: 28, form: 'WWWWW' },
+        { teamId: 'bar', played: 11, won: 7, drawn: 3, lost: 1, goalsFor: 22, goalsAgainst: 10, points: 24, form: 'DWWWL' }
     ],
     'ucl': [
-        { teamId: 'mcity', played: 4, won: 4, drawn: 0, lost: 0, goalsFor: 12, goalsAgainst: 2, points: 12 },
-        { teamId: 'rm', played: 4, won: 4, drawn: 0, lost: 0, goalsFor: 10, goalsAgainst: 3, points: 12 }
+        { teamId: 'mcity', played: 4, won: 4, drawn: 0, lost: 0, goalsFor: 12, goalsAgainst: 2, points: 12, form: 'WWWW' },
+        { teamId: 'rm', played: 4, won: 4, drawn: 0, lost: 0, goalsFor: 10, goalsAgainst: 3, points: 12, form: 'WWWW' }
     ]
 };
 
