@@ -1,0 +1,50 @@
+.container {
+    padding: 16px;
+}
+
+.section {
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.leagueHeader {
+    padding: 12px 16px;
+    background: var(--sidebar-border);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--foreground);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.leagueIcon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}

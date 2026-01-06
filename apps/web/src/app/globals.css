@@ -1,14 +1,24 @@
 :root {
-  --background: #fdfdfd;
-  --foreground: #171717;
+  --background: #ffffff;
+  --foreground: #111111;
+  --sidebar-background: #ffffff;
+  --sidebar-border: #e5e5e5;
+  --accent: #0f8a44;
+  --accent-foreground: #ffffff;
+  --muted: #737373;
+  --border: #e5e5e5;
   --sidebar-width: 240px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme='dark'] {
+  --background: #121212;
+  --foreground: #ededed;
+  --sidebar-background: #181818;
+  --sidebar-border: #2d2d2d;
+  --accent: #0f8a44;
+  --accent-foreground: #ffffff;
+  --muted: #a3a3a3;
+  --border: #2d2d2d;
 }
 
 body {
@@ -17,6 +27,7 @@ body {
   font-family: system-ui, -apple-system, sans-serif;
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 img {
@@ -33,7 +44,7 @@ img {
 
 .main-content {
   padding: 0;
-  background: #fafafa;
+  background: var(--background);
 }
 
 @media (max-width: 768px) {

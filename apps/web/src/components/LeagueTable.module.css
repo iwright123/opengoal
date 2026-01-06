@@ -1,8 +1,9 @@
 .container {
-    background: white;
+    background: var(--background);
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
+    border: 1px solid var(--border);
 }
 
 .table {
@@ -10,6 +11,7 @@
     border-collapse: collapse;
     font-size: 0.9em;
     min-width: 500px;
+    color: var(--foreground);
 }
 
 .table th,
@@ -19,10 +21,10 @@
 }
 
 .table th {
-    background: #f9f9f9;
+    background: var(--sidebar-border);
     font-weight: 600;
-    color: #666;
-    border-bottom: 2px solid #eee;
+    color: var(--muted);
+    border-bottom: 2px solid var(--border);
 }
 
 .team {
@@ -30,11 +32,15 @@
 }
 
 .row:not(:last-child) {
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--border);
+}
+
+.row:hover {
+    background: var(--sidebar-border);
 }
 
 .pos {
-    color: #999;
+    color: var(--muted);
     font-weight: 500;
     width: 40px;
 }
@@ -58,12 +64,12 @@
 
 .points {
     font-weight: bold;
-    color: var(--primary, #00b140);
-    background: rgba(0, 177, 64, 0.05);
+    color: var(--accent);
+    background: rgba(15, 138, 68, 0.1);
 }
 
 .narrow {
-    color: #666;
+    color: var(--muted);
     display: none;
 }
 

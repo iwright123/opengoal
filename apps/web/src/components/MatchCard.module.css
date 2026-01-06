@@ -1,26 +1,26 @@
 .card {
     display: flex;
     flex-direction: column;
-    background: var(--card-bg, #ffffff);
-    border: 1px solid var(--border, #e5e5e5);
+    background: var(--background);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 16px;
     text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s, box-shadow 0.2s;
+    color: var(--foreground);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 .card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    border-color: var(--primary, #00b140);
+    border-color: var(--accent);
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     font-size: 0.8em;
-    color: #666;
+    color: var(--muted);
     margin-bottom: 12px;
 }
 
@@ -28,6 +28,15 @@
     color: #e11d48;
     font-weight: bold;
     animation: pulse 2s infinite;
+}
+
+.status {
+    color: var(--foreground);
+    opacity: 0.8;
+}
+
+.league {
+    font-weight: 500;
 }
 
 .teams {

@@ -124,7 +124,16 @@ export const STANDINGS: Record<string, Standing[]> = {
     'pl': [
         { teamId: 'mcity', played: 10, won: 8, drawn: 1, lost: 1, goalsFor: 25, goalsAgainst: 8, points: 25 },
         { teamId: 'ars', played: 10, won: 7, drawn: 3, lost: 0, goalsFor: 20, goalsAgainst: 10, points: 24 },
-        { teamId: 'liv', played: 10, won: 7, drawn: 2, lost: 1, goalsFor: 22, goalsAgainst: 11, points: 23 }
+        { teamId: 'liv', played: 10, won: 7, drawn: 2, lost: 1, goalsFor: 22, goalsAgainst: 11, points: 23 },
+        { teamId: 'tot', played: 10, won: 6, drawn: 2, lost: 2, goalsFor: 18, goalsAgainst: 12, points: 20 }
+    ],
+    'laliga': [
+        { teamId: 'rm', played: 11, won: 9, drawn: 1, lost: 1, goalsFor: 28, goalsAgainst: 8, points: 28 },
+        { teamId: 'bar', played: 11, won: 7, drawn: 3, lost: 1, goalsFor: 22, goalsAgainst: 10, points: 24 }
+    ],
+    'ucl': [
+        { teamId: 'mcity', played: 4, won: 4, drawn: 0, lost: 0, goalsFor: 12, goalsAgainst: 2, points: 12 },
+        { teamId: 'rm', played: 4, won: 4, drawn: 0, lost: 0, goalsFor: 10, goalsAgainst: 3, points: 12 }
     ]
 };
 

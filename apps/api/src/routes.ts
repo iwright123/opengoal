@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import { getLeagues, getMatches, getMatch, getTeam, getStandings } from './services/mockData';
+import { getLeagues, getMatches, getMatch, getTeam } from './services/mockData';
+import { getStandings } from './services/footballApi';
 
 const router = Router();
 
@@ -8,9 +9,9 @@ router.get('/leagues', (req, res) => {
     res.json(leagues);
 });
 
-router.get('/leagues/:id/standings', (req, res) => {
+router.get('/leagues/:id/standings', async (req, res) => {
     const { id } = req.params;
-    const standings = getStandings(id);
+    const standings = await getStandings(id);
     res.json(standings);
 });
 
