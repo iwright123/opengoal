@@ -61,11 +61,18 @@ export const LEAGUES: League[] = [
 
 export const TEAMS: Team[] = [
     { id: 'mcity', name: 'Manchester City', shortName: 'MCI', leagueId: 'pl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg' },
+    { id: 'muni', name: 'Manchester United', shortName: 'MUN', leagueId: 'pl', logoUrl: 'https://upload.wikimedia.org/wikipedia/sco/7/7a/Manchester_United_FC_crest.svg' },
     { id: 'ars', name: 'Arsenal', shortName: 'ARS', leagueId: 'pl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg' },
     { id: 'liv', name: 'Liverpool', shortName: 'LIV', leagueId: 'pl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg' },
     { id: 'tot', name: 'Tottenham', shortName: 'TOT', leagueId: 'pl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg' },
     { id: 'rm', name: 'Real Madrid', shortName: 'RMA', leagueId: 'ucl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg' },
-    { id: 'bar', name: 'Barcelona', shortName: 'BAR', leagueId: 'ucl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg' }
+    { id: 'bar', name: 'Barcelona', shortName: 'BAR', leagueId: 'ucl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg' },
+    { id: 'mil', name: 'Inter', shortName: 'INT', leagueId: 'ucl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/Inter_Milan_%28crest%29.svg' },
+    { id: 'psg', name: 'PSG', shortName: 'PSG', leagueId: 'ucl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/PSG_%28crest%29.svg' },
+    { id: 'lazio', name: 'Lazio', shortName: 'LAZ', leagueId: 'ucl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/Lazio_%28crest%29.svg' },
+    { id: 'nap', name: 'Napoli', shortName: 'NAP', leagueId: 'ucl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/Napoli_%28crest%29.svg' },
+    { id: 'milan', name: 'Milan', shortName: 'MIL', leagueId: 'ucl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/Inter_Milan_%28crest%29.svg' },
+    { id: 'juve', name: 'Juventus', shortName: 'JUV', leagueId: 'ucl', logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/Juventus_%28crest%29.svg' },
 ];
 
 export const PLAYERS: Player[] = [
@@ -134,10 +141,11 @@ export const MATCHES: Match[] = [
 
 export const STANDINGS: Record<string, Standing[]> = {
     'pl': [
+        { teamId: 'muni', played: 10, won: 9, drawn: 1, lost: 0, goalsFor: 25, goalsAgainst: 8, points: 28, form: 'WWWWW', description: 'PLC' },
         { teamId: 'mcity', played: 10, won: 8, drawn: 1, lost: 1, goalsFor: 25, goalsAgainst: 8, points: 25, form: 'WWWDW', description: 'Promotion - Champions League (Group Stage)' },
         { teamId: 'ars', played: 10, won: 7, drawn: 3, lost: 0, goalsFor: 20, goalsAgainst: 10, points: 24, form: 'WWDDW', description: 'Promotion - Champions League (Group Stage)' },
         { teamId: 'liv', played: 10, won: 7, drawn: 2, lost: 1, goalsFor: 22, goalsAgainst: 11, points: 23, form: 'WDWWL', description: 'Promotion - Champions League (Group Stage)' },
-        { teamId: 'tot', played: 10, won: 6, drawn: 2, lost: 2, goalsFor: 18, goalsAgainst: 12, points: 20, form: 'LLWWW', description: 'Promotion - Champions League (Group Stage)' }
+        { teamId: 'tot', played: 10, won: 6, drawn: 2, lost: 2, goalsFor: 18, goalsAgainst: 12, points: 20, form: 'LLWWW', description: 'Promotion - Europa League (Group Stage)' }
     ],
     'laliga': [
         { teamId: 'rm', played: 11, won: 9, drawn: 1, lost: 1, goalsFor: 28, goalsAgainst: 8, points: 28, form: 'WWWWW' },

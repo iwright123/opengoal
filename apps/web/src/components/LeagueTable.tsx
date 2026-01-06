@@ -26,6 +26,7 @@ export default function LeagueTable({ standings, teamMap }: Props) {
 
     const getQualColor = (desc?: string) => {
         if (!desc) return 'transparent';
+        if (desc.includes('PLC')) return '#e6d822ff'; // Gold
         if (desc.includes('Champions League')) return '#4285f4'; // Blue
         if (desc.includes('Europa League')) return '#fa7b17'; // Orange
         if (desc.includes('Relegation')) return '#ea4335'; // Red
