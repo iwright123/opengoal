@@ -15,15 +15,19 @@ async function getTeamData(id: string) {
     const nextMatch = teamMatches.find(m => m.status === 'SCHEDULED' || m.status === 'LIVE');
     const upcomingMatches = teamMatches.filter(m => m.status === 'SCHEDULED').slice(0, 5);
 
-    // Opponent teams
-    const opponentIds = new Set<string>();
+    const standings = await fetchAPI<Standing[]>(`/leagues/${team.leagueId}/standings`).catch(() => []);
+    const teamStanding = standings.find(s => s.teamId === id);
+
+    // Collect all team IDs to fetch (opponents + league table)
+    const allTeamIds = new Set<string>();
     teamMatches.forEach(m => {
-        if (m.homeTeamId !== id) opponentIds.add(m.homeTeamId);
-        if (m.awayTeamId !== id) opponentIds.add(m.awayTeamId);
+        if (m.homeTeamId !== id) allTeamIds.add(m.homeTeamId);
+        if (m.awayTeamId !== id) allTeamIds.add(m.awayTeamId);
     });
+    standings.forEach(s => allTeamIds.add(s.teamId));
 
     const opponentTeamsList = await Promise.all(
-        Array.from(opponentIds).map(tid => fetchAPI<Team>(`/teams/${tid}`).catch(() => null))
+        Array.from(allTeamIds).map(tid => fetchAPI<Team>(`/teams/${tid}`).catch(() => null))
     );
     const teamMap = new Map<string, any>();
     teamMap.set(team.id, team);
@@ -32,8 +36,7 @@ async function getTeamData(id: string) {
     });
 
     const players = allPlayers.filter(p => p.teamId === id);
-    const standings = await fetchAPI<Standing[]>(`/leagues/${team.leagueId}/standings`).catch(() => []);
-    const teamStanding = standings.find(s => s.teamId === id);
+
 
     return { team, nextMatch, upcomingMatches, players, teamStanding, standings, teamMap };
 }
