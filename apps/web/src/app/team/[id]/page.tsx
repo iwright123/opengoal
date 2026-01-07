@@ -18,19 +18,35 @@ async function getTeamData(id: string) {
     const standings = await fetchAPI<Standing[]>(`/leagues/${team.leagueId}/standings`).catch(() => []);
     const teamStanding = standings.find(s => s.teamId === id);
 
-    // Collect all team IDs to fetch (opponents + league table)
-    const allTeamIds = new Set<string>();
+    // Collect opponent team IDs to fetch (from matches)
+    const opponentIds = new Set<string>();
     teamMatches.forEach(m => {
-        if (m.homeTeamId !== id) allTeamIds.add(m.homeTeamId);
-        if (m.awayTeamId !== id) allTeamIds.add(m.awayTeamId);
+        if (m.homeTeamId !== id) opponentIds.add(m.homeTeamId);
+        if (m.awayTeamId !== id) opponentIds.add(m.awayTeamId);
     });
-    standings.forEach(s => allTeamIds.add(s.teamId));
 
-    const opponentTeamsList = await Promise.all(
-        Array.from(allTeamIds).map(tid => fetchAPI<Team>(`/teams/${tid}`).catch(() => null))
-    );
+    // Populate teamMap with standings data first
     const teamMap = new Map<string, any>();
     teamMap.set(team.id, team);
+
+    standings.forEach(s => {
+        if (s.teamName) {
+            teamMap.set(s.teamId, {
+                id: s.teamId,
+                name: s.teamName,
+                shortName: s.teamName.substring(0, 3).toUpperCase(),
+                logoUrl: s.teamLogo,
+                leagueId: team.leagueId
+            });
+        }
+    });
+
+    // Fetch remaining opponents that weren't in standings (if any)
+    const opponentsToFetch = Array.from(opponentIds).filter(tid => !teamMap.has(tid));
+    const opponentTeamsList = await Promise.all(
+        opponentsToFetch.map(tid => fetchAPI<Team>(`/teams/${tid}`).catch(() => null))
+    );
+
     opponentTeamsList.forEach(t => {
         if (t) teamMap.set(t.id, t);
     });

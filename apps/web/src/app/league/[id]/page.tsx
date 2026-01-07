@@ -30,6 +30,19 @@ async function getLeagueData(id: string) {
     // Let's manually fetch team info for the standby rows
     const teamMap = new Map<string, any>();
 
+    // Optimization: Populate team data directly from standings if available
+    standings.forEach(s => {
+        if (s.teamName) {
+            teamMap.set(s.teamId, {
+                id: s.teamId,
+                name: s.teamName,
+                shortName: s.teamName.substring(0, 3).toUpperCase(),
+                logoUrl: s.teamLogo,
+                leagueId: id
+            });
+        }
+    });
+
     // Helper to fetch and cache team
     const fetchTeam = async (tid: string) => {
         if (teamMap.has(tid)) return;
@@ -39,8 +52,15 @@ async function getLeagueData(id: string) {
         } catch (e) { }
     };
 
-    await Promise.all(standings.map(s => fetchTeam(s.teamId)));
-    await Promise.all(matches.flatMap(m => [fetchTeam(m.homeTeamId), fetchTeam(m.awayTeamId)]));
+    // Only fetch teams that aren't already in the map (e.g. from standing missing info or matches)
+    const teamsToFetch = new Set<string>();
+    standings.forEach(s => !teamMap.has(s.teamId) && teamsToFetch.add(s.teamId));
+    matches.forEach(m => {
+        if (!teamMap.has(m.homeTeamId)) teamsToFetch.add(m.homeTeamId);
+        if (!teamMap.has(m.awayTeamId)) teamsToFetch.add(m.awayTeamId);
+    });
+
+    await Promise.all(Array.from(teamsToFetch).map(tid => fetchTeam(tid)));
 
     return { league, matches, standings, teamMap };
 }

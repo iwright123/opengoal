@@ -2,16 +2,15 @@ import { League, Match, Team, Standing } from '@opengoal/shared';
 import * as mockData from './mockData';
 
 const API_BASE_URL = 'https://v3.football.api-sports.io';
-const API_KEY = process.env.RAPIDAPI_KEY;
+const API_KEY = process.env.API_FOOTBALL_KEY;
 
 const headers = {
-    'x-rapidapi-host': 'v3.football.api-sports.io',
-    'x-rapidapi-key': API_KEY || '',
+    'x-apisports-key': API_KEY || '',
 };
 
 async function fetchFromApi<T>(endpoint: string, params: Record<string, any> = {}): Promise<T | null> {
     if (!API_KEY) {
-        console.warn('RAPIDAPI_KEY not found, using mock data fallback for', endpoint);
+        console.warn('API_FOOTBALL_KEY not found, using mock data fallback for', endpoint);
         return null;
     }
 
@@ -27,6 +26,7 @@ async function fetchFromApi<T>(endpoint: string, params: Record<string, any> = {
 
         const data = await res.json();
         if (data.errors && Object.keys(data.errors).length > 0) {
+            // API-Sports returns errors as an object or array depending on the error
             console.error('API-Sports Error:', data.errors);
             return null;
         }
@@ -43,7 +43,7 @@ export async function getLiveMatches(): Promise<Match[]> {
 
     return data.map((item: any) => ({
         id: String(item.fixture.id),
-        leagueId: String(item.league.id), // Note: Shared types might expect mapped ID like 'pl', but API returns numbers. Simplification for now.
+        leagueId: String(item.league.id),
         homeTeamId: String(item.teams.home.id),
         awayTeamId: String(item.teams.away.id),
         homeScore: item.goals.home,
@@ -54,29 +54,21 @@ export async function getLiveMatches(): Promise<Match[]> {
     }));
 }
 
-// Since mapping IDs (e.g. 39 -> 'pl') requires a robust mapping layer, 
-// for this step we will stick to mostly mock data unless IDs match our internal schema,
-// or we will expand the schema to handle numeric IDs.
-// For now, let's keep it simple: fallback to mock data is the primary path if no key.
-// If key exists, we try to fetch but might encounter ID mismatch issues in frontend 
-// unless we update frontend to handle numeric IDs from API.
-
-// Let's implement a 'getStandings' that maps to our simplified numeric-to-string ID if possible
-// or just return mock data if complex.
-
 export async function getStandings(leagueId: string): Promise<Standing[]> {
     // Mapping internal ID to API ID
     const leagueMap: Record<string, number> = {
         'pl': 39,
         'ucl': 2,
         'laliga': 140,
-        // ... others
+        'seriea': 135,
+        'bundesliga': 78,
+        'ligue1': 61
     };
 
     const apiId = leagueMap[leagueId];
     if (!apiId) return mockData.getStandings(leagueId);
 
-    const data = await fetchFromApi<any[]>('/standings', { league: apiId, season: 2023 }); // Hardcoded season for MVP
+    const data = await fetchFromApi<any[]>('/standings', { league: apiId, season: 2023 });
     if (!data || data.length === 0) return mockData.getStandings(leagueId);
 
     const standings = data[0].league.standings[0];
@@ -88,6 +80,29 @@ export async function getStandings(leagueId: string): Promise<Standing[]> {
         lost: s.all.lose,
         goalsFor: s.all.goals.for,
         goalsAgainst: s.all.goals.against,
-        points: s.points
+        points: s.points,
+        form: s.form,
+        description: s.description,
+        teamName: s.team.name,
+        teamLogo: s.team.logo
     }));
+}
+
+export async function getTeam(teamId: string): Promise<Team | null> {
+    // If it's not numeric, it's likely a mock ID
+    if (isNaN(Number(teamId))) {
+        return mockData.getTeam(teamId) || null;
+    }
+
+    const data = await fetchFromApi<any[]>('/teams', { id: teamId });
+    if (!data || data.length === 0) return null;
+
+    const team = data[0].team;
+    return {
+        id: String(team.id),
+        name: team.name,
+        shortName: team.code || team.name.substring(0, 3).toUpperCase(),
+        logoUrl: team.logo,
+        leagueId: 'unknown' // Teams can belong to multiple leagues, so this is tricky without context
+    };
 }

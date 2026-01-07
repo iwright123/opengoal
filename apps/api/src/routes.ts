@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { getLeagues, getMatches, getMatch, getTeam } from './services/mockData';
-import { getStandings } from './services/footballApi';
+import { getLeagues, getMatches, getMatch } from './services/mockData';
+import { getStandings, getTeam } from './services/footballApi';
 
 const router = Router();
 
@@ -30,9 +30,9 @@ router.get('/matches/:id', (req, res) => {
     res.json(match);
 });
 
-router.get('/teams/:id', (req, res) => {
+router.get('/teams/:id', async (req, res) => {
     const { id } = req.params;
-    const team = getTeam(id);
+    const team = await getTeam(id);
     if (!team) {
         return res.status(404).json({ error: 'Team not found' });
     }

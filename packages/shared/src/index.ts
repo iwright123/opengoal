@@ -63,4 +63,6 @@ export interface Standing {
     points: number;
     form?: string; // comma separated "W,W,D,L" or just "WWDL"
     description?: string; // Qualification/Relegation info
+    teamName?: string;
+    teamLogo?: string;
 }
